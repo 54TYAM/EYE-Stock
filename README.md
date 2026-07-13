@@ -21,7 +21,7 @@ The AI Investment Research Agent is a premium, high-performance web application 
 
 Clone the repository to your local machine:
 ```bash
-git clone https://github.com/54TYAM/ai-investment-research-agent
+git clone https://github.com/54TYAM/EYE-Stock
 ```
 
 **Frontend Setup:**
