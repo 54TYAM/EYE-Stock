@@ -13,7 +13,8 @@ export default function MemoModal({ analysisData, isOpen, onClose }) {
     setError('');
     
     try {
-      const res = await fetch('http://localhost:3001/api/memo', {
+      const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const res = await fetch(`${API_URL}/api/memo`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ analysisData }),

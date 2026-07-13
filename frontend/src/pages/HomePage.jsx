@@ -18,7 +18,8 @@ export default function HomePage({ setAnalysisData }) {
     setSearchedCompany(companyName);
     setStreamEvents([]);
 
-    const eventSource = new EventSource(`http://localhost:3001/api/analyze/stream?company=${encodeURIComponent(companyName)}`);
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+    const eventSource = new EventSource(`${API_URL}/api/analyze/stream?company=${encodeURIComponent(companyName)}`);
 
     eventSource.onmessage = (event) => {
       try {
