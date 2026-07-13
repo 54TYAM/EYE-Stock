@@ -116,7 +116,7 @@ async function financialAnalystNode(state) {
   if (state.error) return {};
   console.log(`📍 [Financial Analyst Agent] Analyzing financial health...`);
 
-  const llm = createLLM(512, 'llama-3.1-8b-instant');
+  const llm = createLLM(512, 'llama-3.3-70b-versatile');
   const prompt = `You are a Financial Analyst specializing in corporate finance.
 
 Analyze this company's financial health based on the data below and return a JSON object.
@@ -168,7 +168,7 @@ async function newsAnalystNode(state) {
   if (state.error) return {};
   console.log(`📍 [News Analyst Agent] Analyzing news sentiment...`);
 
-  const llm = createLLM(512, 'llama-3.1-8b-instant');
+  const llm = createLLM(512, 'llama-3.3-70b-versatile');
   const newsText = state.news?.length
     ? state.news.map((n, i) => `${i + 1}. "${n.headline}" (${n.source}, ${new Date(n.datetime).toLocaleDateString()}) — ${n.summary || ''}`).join('\n')
     : 'No recent news available.';
@@ -210,7 +210,7 @@ async function riskAnalystNode(state) {
   if (state.error) return {};
   console.log(`📍 [Risk Analyst Agent] Evaluating risk profile...`);
 
-  const llm = createLLM(512, 'llama-3.1-8b-instant');
+  const llm = createLLM(512, 'llama-3.3-70b-versatile');
   const prompt = `You are a Risk Analyst specializing in investment risk assessment.
 
 Evaluate the risk profile of ${state.companyName} (${state.ticker}) based on:
@@ -263,7 +263,7 @@ async function chiefAnalystNode(state) {
   if (state.error) return {};
   console.log(`📍 [Chief Analyst Agent] Synthesizing final report...`);
 
-  const llm = createLLM(1536, 'llama-3.1-8b-instant');
+  const llm = createLLM(1536, 'llama-3.3-70b-versatile');
 
   // Build the full prompt with sub-agent context injected
   let subAgentContext = '\n### Sub-Agent Reports\n\n';
