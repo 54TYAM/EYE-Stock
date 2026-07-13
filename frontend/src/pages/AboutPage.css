@@ -1,0 +1,114 @@
+.about-page {
+  height: calc(100vh - 72px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--bg-primary);
+  padding-top: 2rem;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.about-logo-wrapper {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.about-logo-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+
+.about-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.about-links a {
+  color: #a0a0ab;
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  transition: all 0.2s;
+  font-family: var(--font-mono);
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.about-links a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.about-socials {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.about-socials a {
+  color: #a0a0ab;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.about-socials a:hover {
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.about-footer {
+  width: 100%;
+  text-align: center;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.massive-text {
+  font-size: 18vw;
+  font-weight: 900;
+  color: #e5e7eb;
+  line-height: 0.8;
+  margin: 0;
+  letter-spacing: -0.05em;
+  font-family: system-ui, -apple-system, sans-serif;
+  white-space: nowrap;
+}
+
+.copyright-text {
+  font-size: 0.65rem;
+  color: #a0a0ab;
+  margin-top: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.made-with-love {
+  font-size: 0.65rem;
+  color: #a0a0ab;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}

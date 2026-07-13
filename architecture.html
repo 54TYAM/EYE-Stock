@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture Diagram</title>
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ 
+          startOnLoad: true, 
+          theme: 'dark',
+          themeVariables: {
+            fontFamily: 'Inter, sans-serif',
+            fontSize: '32px',
+            primaryColor: '#0a0a0a',
+            primaryTextColor: '#fff',
+            primaryBorderColor: '#eab308',
+            lineColor: '#eab308',
+            secondaryColor: '#1a1a1a',
+            tertiaryColor: '#222'
+          },
+          flowchart: { curve: 'basis', htmlLabels: true }
+      });
+    </script>
+    <style>
+        body {
+            background-color: #030303;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 2rem;
+        }
+        .mermaid {
+            background: rgba(15, 15, 15, 0.9);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 0 40px rgba(234, 179, 8, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="mermaid">
+    flowchart TD
+        User([User]) -->|Inputs Ticker| React[React Frontend]
+        React -->|HTTP POST /api/analyze| Node[Node.js Express Server]
+        
+        Node -->|Orchestrates| LangChain[LangChain Pipeline]
+        
+        subgraph DataCollection [Data Collection]
+            LangChain -->|Fetch Profile| Finnhub[(Finnhub API)]
+            LangChain -->|Fetch Financials| Yahoo[(Yahoo Finance)]
+            LangChain -->|Fetch Articles| News[(News API)]
+        end
+        
+        subgraph AI [Multi-Agent AI Groq Llama-3]
+            Finnhub & Yahoo & News -->|Raw Data| Agent1[Financial Analyst]
+            Finnhub & Yahoo & News -->|Raw Data| Agent2[News & Sentiment]
+            Finnhub & Yahoo & News -->|Raw Data| Agent3[Risk Evaluator]
+            
+            Agent1 & Agent2 & Agent3 -->|Synthesizes| Chief[Chief AI Analyst]
+        end
+        
+        Chief -->|Validates JSON| Node
+        Node -->|Streams Response| React
+        
+        React -->|Renders| Dashboard[Interactive Dashboard]
+        Dashboard -->|Debates & Charts| User
+    </div>
+</body>
+</html>

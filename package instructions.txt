@@ -1,0 +1,10 @@
+# Packaging Instructions
+
+To test the application locally:
+1. Open a terminal in the `backend` directory.
+2. Run `npm install` and then `npm start`.
+3. Open a separate terminal in the `frontend` directory.
+4. Run `npm install` and then `npm run dev`.
+5. Open your browser to http://localhost:5173.
+
+The application requires `GROQ_API_KEY`, `FINNHUB_API_KEY`, and `NEWS_API_KEY` in the `backend/.env` file.
